@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Love Letter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8bbd0, #f06292);
+            position: relative;
+        }
+
+        /* Emoji animation container */
+        .emoji-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0;
+            animation: float 5s linear infinite, fadeInOut 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+            }
+            100% {
+                transform: translateY(-100vh) translateX(calc(100vw - 50vw));
+            }
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            20%, 80% {
+                opacity: 1;
+            }
+        }
+
+        .letter {
+            transform: scale(0);
+            transform-origin: center;
+            overflow-y: auto;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .flap {
+            transform-origin: top;
+            background: linear-gradient(135deg, #ffb7c5, #ff6f91);
+        }
+
+        .front-design {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f8bbd0 25%, #f06292 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .heart {
+            color: white;
+            font-size: 2rem;
+            animation: pulse 1.5s infinite;
+            transition: transform 0.2s;
+        }
+
+        .heart:hover {
+            transform: scale(1.3);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen">
+    <!-- Emoji Background -->
+    <div class="emoji-container" id="emoji-container"></div>
+
+    <!-- Envelope Container -->
+    <div class="relative w-80 sm:w-96 h-60 sm:h-72" id="envelope-container">
+        <!-- Front Design -->
+        <div class="front-design hover:shadow-lg transition-shadow duration-300">
+            <span class="heart z-10">❤️ Open Me</span>
+        </div>
+
+        <!-- Bottom Flap -->
+        <div class="absolute bottom-0 w-full h-1/2 rounded-b-lg border-4 border-pink-500 flap"></div>
+
+        <!-- Top Flap -->
+        <div class="absolute top-0 w-full h-1/2 rounded-t-lg border-4 border-pink-500 flap"></div>
+
+        <!-- Main Envelope -->
+        <div class="absolute w-full h-full bg-pink-300 border-4 border-pink-500 rounded-lg"></div>
+
+        <!-- Letter -->
+        <div class="absolute top-0 left-0 w-full h-full bg-white rounded-lg shadow-md px-6 py-4 text-center letter overflow-auto">
+            <h1 class="text-3xl text-pink-500 font-dancing-script font-bold mb-4">My Love Letter</h1>
+            <p class="text-gray-700 text-lg leading-relaxed">
+                The first time I saw you, <span class="highlight">Maya</span>, was in the college canteen. You were sitting there, and I was playing table tennis nearby 🏓. When I caught a glimpse of you, I couldn’t help but think, “<span class="highlight">Wow, she’s beautiful 😍.</span>” But back then, I had decided not to get into a relationship, so I convinced myself not to talk to you. (*Famous last words, right?*)
+                <br><br>
+                A few days later, the college announced the Momothon program, and I wanted to get involved—to socialize more and make new friends 🤝. So, I decided to volunteer for the event. During the meeting for volunteers, I saw you again. My heart skipped a beat when you picked the role I secretly wanted—the one where you’d blow the whistle to signal time for the competitors 🕒. (*Let’s be honest, I just wanted to hear you whistle.*)
+                <br><br>
+                Then came the day we had to make banners for the event 🎨. I had no clue how to design one, so I asked a friend for help. She couldn’t, but she pointed me to you. When you came over to help, I felt butterflies in my stomach for the first time 🦋. (*Fun fact: Those butterflies still haven’t left.*)
+                <br><br>
+                The Momothon event was <span class="highlight">unforgettable</span>. We worked side by side, laughed, talked, and enjoyed every moment together 😄. (*Even though we never got our volunteering certificates, I think we earned something better.*)
+                <br><br>
+                Not long after, the college organized an orientation program at Diamond Hill Resort ⛱️. I decided I wanted to talk to you more during that trip. That night, we sat together on a swing, and you told me what kind of guy you liked. To my surprise, 80% of what you described matched me 😂. (*The other 20%? Clearly, a work in progress.*)
+                <br><br>
+                The next day, as we traveled back from the orientation, I sat next to you on the bus 🚌. When you fell asleep on my shoulder, I felt a kind of happiness I had never felt before 🥹. In that moment, I knew—I wanted you in my life, no matter what 💪.
+                <br><br>
+                After the orientation, life went on. You were studying hotel management 🍽️, and I was in IT 💻, so we didn’t get to see each other often, but we talked online all the time 💬. Slowly, our connection grew stronger. Finally, on August 10, 2024, at exactly 10:10 PM (*classic us*), I gathered all my courage and <span class="highlight">proposed to you 💍.</span> When you said yes, my heart felt like it was going to burst with joy 🥰. (*Spoiler alert: It still does.*)
+                <br><br>
+                Maya, thank you for choosing me when you had so many options 💕. You’ve brought a happiness into my life that I didn’t even know was possible 🌟. From the first moment I saw you, my world has been brighter, and my smile has been different because of you 😊.
+                <br><br>
+                I <span class="highlight">love you</span> so, so much, Maya ❤️. Thank you for coming into my life and making it so beautiful 🥰. I feel like we’re truly made for each other, and I’ll forever cherish every moment with you 👫.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Elements
+        const container = document.getElementById('envelope-container');
+        const letter = container.querySelector('.letter');
+        const flaps = container.querySelectorAll('.flap');
+        const frontDesign = container.querySelector('.front-design');
+        const emojiContainer = document.getElementById('emoji-container');
+
+        // Animation Timeline
+        const tl = gsap.timeline({ paused: true });
+
+        // Open Envelope Animation
+        tl.to(flaps[0], { rotateX: -180, duration: 0.8, ease: 'power2.out' }) // Top flap
+          .to(flaps[1], { rotateX: 180, duration: 0.8, ease: 'power2.out' }, '<') // Bottom flap
+          .to(letter, { scale: 1, duration: 0.8, ease: 'elastic.out(1, 0.5)' }) // Letter reveal
+          .to(frontDesign, { opacity: 0, duration: 0.4, ease: 'power1.out' }, '<'); // Fade out front design
+
+        // Click Event
+        container.addEventListener('click', () => {
+            if (tl.progress() < 1) {
+                tl.play(); // Open
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            } else {
+                tl.reverse(); // Close
+                document.body.style.overflow = 'hidden'; // Disable scrolling
+            }
+        });
+
+        // Floating Emojis
+        const emojis = ['❤️', '🌸', '✨', '💕', '💖', '😍', '🥰', '💐'];
+
+        function createEmoji() {
+            const emoji = document.createElement('span');
+            emoji.className = 'emoji';
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + 'vw';
+            emoji.style.top = '100vh';
+            emoji.style.animationDuration = Math.random() * 3 + 5 + 's';
+            emoji.style.fontSize = Math.random() * 1.5 + 1.5 + 'rem';
+            emojiContainer.appendChild(emoji);
+
+            setTimeout(() => {
+                emoji.remove();
+            }, 8000); // Remove after animation ends
+        }
+
+        setInterval(createEmoji, 300); // Generate emojis every 300ms
+    </script>
+</body>
+</html>

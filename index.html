@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For the Love of My Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            animation: gradient-animation 6s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .heart-beat {
+            animation: heart-beat 1.5s infinite;
+        }
+
+        @keyframes heart-beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col items-center justify-center text-center text-white">
+    <div class="container p-6 rounded-lg bg-opacity-30 backdrop-blur-sm bg-pink-300 shadow-lg max-w-md">
+        <h1 class="text-5xl font-bold drop-shadow-md heart-beat">For the Love of My Life</h1>
+        <p class="mt-6 text-lg leading-relaxed">
+            Welcome to a space made just for you, filled with love, warmth, and dreams for our beautiful journey together. ❤️
+        </p>
+        <button 
+            class="mt-8 px-8 py-4 bg-white text-pink-600 text-lg font-semibold rounded-full shadow-lg hover:bg-pink-600 hover:text-white hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 transition-all"
+            onclick="location.href='loveletter.html'"
+        >
+            Enter
+        </button>
+    </div>
+</body>
+</html>
